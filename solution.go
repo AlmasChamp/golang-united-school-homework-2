@@ -18,8 +18,11 @@ func CalcSquare(sideLen float64, sidesNum int) float64 {
 	case 4:
 		res := sideLen * sideLen
 		return res
-	default:
+	case 0:
 		res := math.Pi * (sideLen * sideLen)
 		return res
+	default:
+		return 0
 	}
+
 }
