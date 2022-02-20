@@ -10,21 +10,26 @@ import "math"
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-type Num int
+type sides int
 
 const (
-	Triangle Num = 3
-	Square   Num = 4
-	Circle   Num = 0
+	SidesTriangle sides = 3
+	SidesSquare   sides = 4
+	SidesCircle   sides = 0
 )
 
-func CalcSquare(sideLen float64, sidesNum Num) float64 {
-	if sidesNum == Triangle {
-		return (math.Sqrt(3) / 4) * (sideLen * sideLen)
-	} else if sidesNum == Square {
+func CalcSquare(sideLen float64, sidesNum sides) float64 {
+	if sidesNum == SidesTriangle {
+		sRoot := math.Sqrt(3)
+		root := sideLen * sideLen
+		return (sRoot / 4) * root
+	}
+	if sidesNum == SidesCircle {
+		root := sideLen * sideLen
+		return math.Pi * root
+	}
+	if sidesNum == SidesSquare {
 		return sideLen * sideLen
-	} else if sidesNum == Circle {
-		return math.Pi * (sideLen * sideLen)
 	}
 	return 0
 }
